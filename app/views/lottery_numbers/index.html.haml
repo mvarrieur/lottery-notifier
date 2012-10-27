@@ -1,0 +1,25 @@
+%h1 Listing lottery_numbers
+
+%table
+  %tr
+    %th Draw date
+    %th Link
+    %th Next draw
+    %th Winning number
+    %th
+    %th
+    %th
+
+  - @lottery_numbers.each do |lottery_number|
+    %tr
+      %td= lottery_number.draw_date
+      %td= lottery_number.link
+      %td= lottery_number.next_draw
+      %td= lottery_number.winning_number
+      %td= link_to 'Show', lottery_number
+      %td= link_to 'Edit', edit_lottery_number_path(lottery_number)
+      %td= link_to 'Destroy', lottery_number, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Lottery number', new_lottery_number_path

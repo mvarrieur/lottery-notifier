@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Pick number:
+  = @pick.pick_number
+
+= link_to 'Edit', edit_pick_path(@pick)
+\|
+= link_to 'Back', picks_path

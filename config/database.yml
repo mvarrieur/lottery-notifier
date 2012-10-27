@@ -1,0 +1,16 @@
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  user: lottery
+  database: lottery_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  user: lottery
+  database: lottery_test
+  host: localhost

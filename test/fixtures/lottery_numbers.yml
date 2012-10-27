@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  draw_date: 2012-10-25
+  link: MyString
+  next_draw: 2012-10-25
+  winning_number: MyString
+
+two:
+  draw_date: 2012-10-25
+  link: MyString
+  next_draw: 2012-10-25
+  winning_number: MyString
