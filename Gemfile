@@ -18,6 +18,7 @@ end
 
 group :development do
   gem 'debugger'
+  gem 'letter_opener', '~> 1.0.0'
 end
 
 

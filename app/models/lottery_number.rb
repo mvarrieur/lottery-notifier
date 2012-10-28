@@ -34,6 +34,6 @@ class LotteryNumber < ActiveRecord::Base
         @lottery_number.link = drawing['link']
       end
     end
-    return @lottery_number
+    return @lottery_number.save!
   end
 end

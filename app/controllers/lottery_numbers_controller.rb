@@ -73,16 +73,14 @@ class LotteryNumbersController < ApplicationController
   end
 
   def get_latest
-    @lottery_number = LotteryNumber.get_latest
+    @saved = LotteryNumber.get_latest
 
     respond_to do |format|
-      if @lottery_number.save
+      if @saved
         format.html { redirect_to action: 'email_winner', controller: 'users' }
-        #format.html { redirect_to @lottery_number, notice: 'Latest Lottery Number successfully grabbed.' }
-        #format.json { render json: @lottery_number, status: :created, location: @lottery_number }
       else
         format.html { render action: "new" }
-        format.json { render json: @lottery_number.errors, status: :unprocessable_entity }
+        format.json { render json: @saved.errors, status: :unprocessable_entity }
       end
     end
   end
