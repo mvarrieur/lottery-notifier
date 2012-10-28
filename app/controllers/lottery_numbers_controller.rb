@@ -1,6 +1,4 @@
 class LotteryNumbersController < ApplicationController
-  # GET /lottery_numbers
-  # GET /lottery_numbers.json
   def index
     @lottery_numbers = LotteryNumber.all
 
@@ -14,8 +12,6 @@ class LotteryNumbersController < ApplicationController
     @lottery_number = LotteryNumber.current
   end
 
-  # GET /lottery_numbers/1
-  # GET /lottery_numbers/1.json
   def show
     @lottery_number = LotteryNumber.find(params[:id])
 
@@ -25,8 +21,6 @@ class LotteryNumbersController < ApplicationController
     end
   end
 
-  # GET /lottery_numbers/new
-  # GET /lottery_numbers/new.json
   def new
     @lottery_number = LotteryNumber.new
 
@@ -36,13 +30,10 @@ class LotteryNumbersController < ApplicationController
     end
   end
 
-  # GET /lottery_numbers/1/edit
   def edit
     @lottery_number = LotteryNumber.find(params[:id])
   end
 
-  # POST /lottery_numbers
-  # POST /lottery_numbers.json
   def create
     @lottery_number = LotteryNumber.new(params[:lottery_number])
 
@@ -57,8 +48,6 @@ class LotteryNumbersController < ApplicationController
     end
   end
 
-  # PUT /lottery_numbers/1
-  # PUT /lottery_numbers/1.json
   def update
     @lottery_number = LotteryNumber.find(params[:id])
 
@@ -73,8 +62,6 @@ class LotteryNumbersController < ApplicationController
     end
   end
 
-  # DELETE /lottery_numbers/1
-  # DELETE /lottery_numbers/1.json
   def destroy
     @lottery_number = LotteryNumber.find(params[:id])
     @lottery_number.destroy
@@ -86,13 +73,13 @@ class LotteryNumbersController < ApplicationController
   end
 
   def get_latest
-    #debugger
     @lottery_number = LotteryNumber.get_latest
 
     respond_to do |format|
       if @lottery_number.save
-        format.html { redirect_to @lottery_number, notice: 'Latest Lottery Number successfully grabbed.' }
-        format.json { render json: @lottery_number, status: :created, location: @lottery_number }
+        format.html { redirect_to action: 'email_winner', controller: 'users' }
+        #format.html { redirect_to @lottery_number, notice: 'Latest Lottery Number successfully grabbed.' }
+        #format.json { render json: @lottery_number, status: :created, location: @lottery_number }
       else
         format.html { render action: "new" }
         format.json { render json: @lottery_number.errors, status: :unprocessable_entity }

@@ -1,7 +1,11 @@
 LotteryApp::Application.routes.draw do
   resources :picks
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    collection do
+      get 'email_winner'
+    end
+  end
 
   resources :lottery_numbers do
     collection do
