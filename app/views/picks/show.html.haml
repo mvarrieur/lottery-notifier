@@ -3,10 +3,7 @@
 %p
   %b Pick number:
   = @pick.pick_number
-%p
-  %b User ID:
-  = @pick.user_id
 
-= link_to 'Edit', edit_pick_path(@pick)
+= link_to 'Change', edit_pick_path(@pick)
 \|
 = link_to 'Back', picks_path

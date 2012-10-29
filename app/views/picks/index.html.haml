@@ -1,19 +1,17 @@
 %h1 Listing picks
 
-%table
+%table.table.table-striped
   %tr
     %th Pick number
-    %th
-    %th
     %th
 
   - @picks.each do |pick|
     %tr
       %td= pick.pick_number
-      %td= link_to 'Show', pick
-      %td= link_to 'Edit', edit_pick_path(pick)
-      %td= link_to 'Destroy', pick, method: :delete, data: { confirm: 'Are you sure?' }
+      %td
+        =link_to 'Change', edit_pick_path(pick), class: 'btn btn-small'
+        =link_to 'Delete', pick, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small'
 
 %br
-
-= link_to 'New Pick', new_pick_path
+= will_paginate @picks
+= link_to 'New Pick', new_pick_path, class: 'btn btn-primary'

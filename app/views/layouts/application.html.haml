@@ -10,15 +10,43 @@
   
   -# Set the viewport width to device width for mobile
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-  %title= content_for?(:title) ? yield(:title) : "Lottery Numbers"
+  %title= content_for?(:title) ? yield(:title) : "Raffle Notifier"
 
   -# Included CSS Files
-  = stylesheet_link_tag "application"
-  = csrf_meta_tag
+  = stylesheet_link_tag 'application'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
 
 %body
-  = yield
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        =link_to 'Raffle Notifier', root_path, class: 'brand'
 
-  %footer
-    %p
-      Created by <a href="mailto:mike.varrieur+lotto@gmail.com">mike.varrieur@gmail.com</a>
+        .nav-collapse
+          %ul.nav
+            %li
+              = nav_link 'Current Drawing', current_lottery_numbers_path, {}
+            %li
+              = nav_link 'Recent Drawings', lottery_numbers_path, {}
+            -if user_signed_in?
+              %li
+                = nav_link 'My Picks', picks_path, {}
+            -if user_signed_in?
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, method: :delete
+            -else
+              %li
+                = nav_link 'Sign In', new_user_session_path, {}
+              %li
+                = nav_link 'Register', new_user_registration_path, {}
+  .container
+    .row
+      .span1
+      .span10
+        = yield
+      .span1

@@ -1,18 +1,11 @@
 %p#notice= notice
 
 %p
-  %b Draw date:
-  = @lottery_number.draw_date
+  %b Winning number:
+  = @lottery_number.winning_number
 %p
-  %b Link:
-  = @lottery_number.link
+  %b Drawn On:
+  = @lottery_number.draw_date
 %p
   %b Next draw:
   = @lottery_number.next_draw
-%p
-  %b Winning number:
-  = @lottery_number.winning_number
-
-= link_to 'Edit', edit_lottery_number_path(@lottery_number)
-\|
-= link_to 'Back', lottery_numbers_path

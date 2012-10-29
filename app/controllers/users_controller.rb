@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def email_winner
-    #debugger
     User.email_winner
   end
 end

@@ -1,46 +1,44 @@
 class PicksController < ApplicationController
-  # GET /picks
-  # GET /picks.json
+  before_filter :authenticate_user!
+
   def index
-    @picks = Pick.all
+    @picks = current_user.picks.paginate(:page => params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @picks }
     end
   end
 
-  # GET /picks/1
-  # GET /picks/1.json
   def show
     @pick = Pick.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pick }
+    if (@pick.user == current_user)
+      respond_to do |format|
+        format.html
+        format.json { render json: @pick }
+      end
+    else
+      render :file => "public/401.html", :status => :unauthorized
     end
   end
 
-  # GET /picks/new
-  # GET /picks/new.json
   def new
     @pick = Pick.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @pick }
     end
   end
 
-  # GET /picks/1/edit
   def edit
     @pick = Pick.find(params[:id])
   end
 
-  # POST /picks
-  # POST /picks.json
   def create
     @pick = Pick.new(params[:pick])
+    @pick.user = current_user
 
     respond_to do |format|
       if @pick.save
@@ -53,8 +51,6 @@ class PicksController < ApplicationController
     end
   end
 
-  # PUT /picks/1
-  # PUT /picks/1.json
   def update
     @pick = Pick.find(params[:id])
 
@@ -68,9 +64,7 @@ class PicksController < ApplicationController
       end
     end
   end
-
-  # DELETE /picks/1
-  # DELETE /picks/1.json
+  
   def destroy
     @pick = Pick.find(params[:id])
     @pick.destroy

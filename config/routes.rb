@@ -1,20 +1,24 @@
 LotteryApp::Application.routes.draw do
+  devise_for :users
+
+  devise_scope :user do
+    get 'register', to: 'devise/registrations#new'
+    get 'login', to: 'devise/sessions#new'
+    get 'logout', to: 'devise/sessions#destroy'
+    get 'forgot_password', to: 'devise/passwords#new'
+  end
+
   resources :picks
 
-  resources :users, only: [:new, :create, :show] do
-    collection do
-      get 'email_winner'
-    end
-  end
-
-  resources :lottery_numbers do
+  resources :lottery_numbers, only: [:show, :index] do
     collection do
       get 'current'
-      get 'get_latest'
     end
   end
 
-  root :to => 'lottery_numbers#index'
+  get '/users/forgot_password', to: 'devise/passwords#new'
+
+  root :to => 'lottery_numbers#current'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
