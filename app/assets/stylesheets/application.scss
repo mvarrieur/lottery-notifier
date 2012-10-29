@@ -30,4 +30,9 @@ div.control-group.boolean label.boolean {
   color: $white;
 }
 
+.navbar .brand:hover {
+  color: #000000;
+  background-color:transparent;
+}
+
 @import 'bootstrap-responsive';
