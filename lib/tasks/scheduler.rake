@@ -8,3 +8,9 @@ task :update_feed => :environment do
     puts 'Emailed Winner'
   end
 end
+
+task :email_winner => :environment do
+  puts 'Emailing Winner'
+  Pick.email_winner
+  puts 'Emailed Winner'
+end

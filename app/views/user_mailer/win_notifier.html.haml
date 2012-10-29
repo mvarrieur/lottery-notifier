@@ -1,3 +1,8 @@
-You've Won the raffle!
+%p
+  #{@user.name},
+  %br/
+  Your pick: #{@lottery_number.winning_number} matches today\'s Mid-Day Numbers Game drawing!
 
-= @user.email + ', you have won the raffle!'
+%p
+  %strong
+    Note: This site is in no way affiliated with Holbrook Sportsmen's Club or their raffle.  This win is not guaranteed.  This site is provided only as a service and convenience.  Please verify that your raffle ticket actually matches the Massachusetts Mid-Day Numbers Game and verify with Holbrook that you have won.

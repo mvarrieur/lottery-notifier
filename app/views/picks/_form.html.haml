@@ -1,4 +1,4 @@
-= form_for @pick do |f|
+= simple_form_for @pick do |f|
   - if @pick.errors.any?
     #error_explanation
       %h2= "#{pluralize(@pick.errors.count, "error")} prohibited this pick from being saved:"
@@ -7,7 +7,6 @@
           %li= msg
 
   .field
-    = f.label :pick_number
-    = f.text_field :pick_number
+    = f.input :pick_number
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

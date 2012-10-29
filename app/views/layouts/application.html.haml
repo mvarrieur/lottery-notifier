@@ -49,5 +49,16 @@
     .row
       .span1
       .span10
+        - flash.each do |name, msg|
+          - if msg.is_a?(String)
+            %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+              %a.close{"data-dismiss" => "alert"} ×
+              = content_tag :div, msg, :id => "flash_#{name}"
         = yield
       .span1
+
+    .row.disclaimer
+      .span12
+        %p
+          %strong
+            Note: This site is in no way affiliated with Holbrook Sportsmen's Club or their raffle.  This win is not guaranteed.  This site is provided only as a service and convenience.  Please verify that your raffle ticket actually matches the Massachusetts Mid-Day Numbers Game and verify with Holbrook that you have won.

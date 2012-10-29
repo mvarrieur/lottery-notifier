@@ -8,7 +8,7 @@ class Pick < ActiveRecord::Base
   self.per_page = 30
 
   def self.email_winner
-    picks = Pick.find_all_by_pick_number(LotteryNumber.current)
+    picks = Pick.find_all_by_pick_number(LotteryNumber.current.winning_number)
     picks.each do |pick|
       UserMailer.win_notifier(pick.user, LotteryNumber.current).deliver
     end
