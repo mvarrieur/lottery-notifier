@@ -1,9 +1,6 @@
-%p#notice= notice
-
 %p
   %b Pick number:
   = @pick.pick_number
 
 = link_to 'Change', edit_pick_path(@pick), class: 'btn btn-primary'
-\|
 = link_to 'Back', picks_path, class: 'btn'
