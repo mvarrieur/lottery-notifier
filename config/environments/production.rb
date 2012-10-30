@@ -81,5 +81,5 @@ LotteryApp::Application.configure do
   }
 
   # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = {host: "lottery-notifier.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: "raffle-notifier.herokuapp.com"}
 end
