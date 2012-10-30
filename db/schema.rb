@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028185348) do
+ActiveRecord::Schema.define(:version => 20121030024247) do
+
+  create_table "gun_calendars", :force => true do |t|
+    t.date     "date"
+    t.text     "gun_description"
+    t.decimal  "value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "gun_calendars", ["date"], :name => "index_gun_calendars_on_date"
 
   create_table "lottery_numbers", :force => true do |t|
     t.date     "draw_date"
