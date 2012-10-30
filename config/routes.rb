@@ -18,7 +18,7 @@ LotteryApp::Application.routes.draw do
 
   get '/users/forgot_password', to: 'devise/passwords#new'
 
-  root :to => 'lottery_numbers#current'
+  root :to => 'static#info'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
