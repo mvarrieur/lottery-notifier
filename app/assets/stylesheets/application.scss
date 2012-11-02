@@ -11,6 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+$myRed: #E42217;
+$linkColor: $myRed;
+$navbarBrandColor: $linkColor;
+$navbarLinkColorHover: lighten($navbarBrandColor, 15%);
+$blue: $linkColor;
+
 @import 'bootstrap';
 
 body {
@@ -34,9 +41,9 @@ div.control-group.boolean label.boolean {
   margin-top:30px;
 }
 
-.navbar .brand:hover {
-  color: #000000;
-  background-color:transparent;
+.navbar .navbar-inner {
+  border-bottom: 1px solid $myRed;
 }
+
 
 @import 'bootstrap-responsive';

@@ -28,3 +28,5 @@ GunCalendar.create!(date: '2012-11-27'.to_date, gun_description: 'Walther PPF 38
 GunCalendar.create!(date: '2012-11-28'.to_date, gun_description: 'Henry Golden Boy', value: 515.00 )
 GunCalendar.create!(date: '2012-11-29'.to_date, gun_description: 'Ruger 40 cal', value: 520.00 )
 GunCalendar.create!(date: '2012-11-30'.to_date, gun_description: 'Mossberg 12 ga', value: 478.00 )
+
+GunCalendar.create!(date: '2012-10-29'.to_date, gun_description: 'Mossberg 12 ga', value: 478.00 )
