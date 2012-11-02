@@ -1,6 +1,6 @@
 class LotteryNumbersController < ApplicationController
   def index
-    @lottery_numbers = LotteryNumber.paginate(:page => params[:page])
+    @lottery_numbers = LotteryNumber.paginate(:page => params[:page]).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

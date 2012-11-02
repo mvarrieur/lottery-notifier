@@ -8,6 +8,8 @@ LotteryApp::Application.routes.draw do
     get 'forgot_password', to: 'devise/passwords#new'
   end
 
+  resources :users, only: [:index]
+
   resources :picks
 
   resources :lottery_numbers, only: [:show, :index] do

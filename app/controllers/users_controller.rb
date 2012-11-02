@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_superuser!, only: [:index]
+  def index
+    @users = User.paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+    end
+  end
+
   def new
     @user = User.new
 

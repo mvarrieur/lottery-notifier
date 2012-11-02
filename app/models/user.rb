@@ -11,10 +11,18 @@ class User < ActiveRecord::Base
   has_many :picks, dependent: :destroy
   accepts_nested_attributes_for :picks
 
+  after_create :send_welcome_email
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
   validates :name, presence: true
+
+  self.per_page = 30
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end
 end

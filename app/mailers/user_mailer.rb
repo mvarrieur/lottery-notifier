@@ -8,4 +8,10 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email, subject: 'Mid-Day Numbers Game Match Notification'
   end
+
+  def welcome_email(user)
+    @user = user
+
+    mail to: user.email, subject: 'Welcome to the Holbrook raffle notifier'
+  end
 end

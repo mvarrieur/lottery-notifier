@@ -16,6 +16,7 @@ $myRed: #E42217;
 $linkColor: $myRed;
 $navbarBrandColor: $linkColor;
 $navbarLinkColorHover: lighten($navbarBrandColor, 15%);
+$navbarLinkColorActive: $linkColor;
 $blue: $linkColor;
 
 @import 'bootstrap';
@@ -23,6 +24,7 @@ $blue: $linkColor;
 body {
   padding-top: 60px;
 }
+
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
@@ -41,9 +43,14 @@ div.control-group.boolean label.boolean {
   margin-top:30px;
 }
 
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  
+}
+
 .navbar .navbar-inner {
   border-bottom: 1px solid $myRed;
 }
-
 
 @import 'bootstrap-responsive';
