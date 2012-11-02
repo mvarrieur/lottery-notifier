@@ -28,4 +28,6 @@ group :development do
   gem 'ruby_parser'
 end
 
-
+group :production do
+  gem 'newrelic_rpm'
+end
