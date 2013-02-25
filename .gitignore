@@ -16,3 +16,5 @@
 
 /config/initializers/dev_environment.rb
 /config/initializers/secret_token.rb
+
+.DS_Store
